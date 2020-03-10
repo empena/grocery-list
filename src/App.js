@@ -2,10 +2,15 @@ import React, { Component, } from 'react';
 import List from "./components/List";
 import ListForm from "./components/ListForm";
 import './App.css';
+import Footer from './components/Footer';
 
 class App extends Component {
   
   state = { groceryList: [] }
+
+  setFilter = (filter) => {
+    this.setState({ filter })
+  }
 
   getUniqueId = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -34,12 +39,28 @@ class App extends Component {
     })
   }
 
+  visibleItems = () => {
+    const { groceryList, filter } = this.state;
+    switch(filter) {
+      case 'Active':
+        return groceryList.filter( t => !t.complete )
+      case 'Complete':
+        return groceryList.filter( t=> t.complete )
+      default:
+        return groceryList;
+    }
+  }
+
   render() {
-    const { groceryList, } = this.state;
+    const { groceryList, filter } = this.state;
     return (
       <div >
         <ListForm addItem={this.addItem} />
-        <List name="Grocery List" items={groceryList} itemClick={this.handleClick}/>
+        <Footer filter={filter} setFilter={this.setFilter} />
+        <List name="Grocery List" items={this.visibleItems()} itemClick={this.handleClick} />
+        {/* <List name="Grocery List" items={groceryList} itemClick={this.handleClick}/> */}
+        
+        
       </div>
     )
   }
