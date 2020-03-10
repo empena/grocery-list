@@ -19,7 +19,7 @@ class ListForm extends React.Component {
     const { name }= this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form class='form' onSubmit={this.handleSubmit}>
         <input
           value={name}
           name="name"

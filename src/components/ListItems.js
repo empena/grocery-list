@@ -2,7 +2,7 @@ import React from 'react';
 
 //Todo
 const ListItems = ({ id, name, complete, itemClick }) => (
-  <li
+  <li class="card"
     style={ complete ? { ...styles.item, ...styles.complete } : styles.item }
     onClick={ () => itemClick(id) }
   >
