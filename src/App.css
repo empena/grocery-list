@@ -28,6 +28,12 @@
   color: #61dafb;
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card {
   /* Add shadows to create the "card" effect */
   display: flex;

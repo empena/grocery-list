@@ -2,11 +2,13 @@ import React from 'react';
 
 const styles = {
   link: { 
-    cursor: 'pointer', 
-    textDecoration: 'underline', 
-    color: 'blue',
-    marginLeft: '5px',
-    marginRight: '5px',
+    cursor: 'pointer',
+    padding: '10px 20px 10px 20px',
+    borderRadius: '5px',
+    marginLeft: '10px',
+    marginRight: '10px',
+    backgroundColor: '#282c34',
+    color: 'white',
   }
 }
 
@@ -18,7 +20,7 @@ const filterLink = (current, name, setFilter) => {
 }
 
 const Footer = ({ filter, setFilter }) => (
-  <div>
+  <div class='menu'>
     { ['All', 'Active', 'Complete'].map( f => filterLink(filter, f, setFilter) ) }
   </div>
 )
